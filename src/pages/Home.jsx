@@ -1,6 +1,6 @@
 import React from "react";
 import Nav from "../components/Nav";
-import Hero from "../assets/hero-img-2.jpg";
+import Hero from "../assets/hero-2.jpg";
 import { Swiper, SwiperSlide, useSwiperSlide } from "swiper/react";
 import Footer from "../components/Footer";
 import Slide from "../components/Slide";
@@ -46,13 +46,13 @@ const Home = () => {
         className="bg-cover bg-center h-screen flex justify-center items-center overflow-x-hidden"
         style={{ backgroundImage: `url(${Hero})` }}
       >
-        <div className="flex justify-center items-center text-left w-[40rem]">
-          <span className="z-[100] w-[70vw] relative lg:bottom-[0rem] bottom-[5rem] flex gap-[2rem] flex-col">
+        <div className="flex justify-center items-center text-left w-[50vw]">
+          <span className="z-[100] relative lg:bottom-[0rem] bottom-[5rem] flex gap-[2rem] flex-col">
             <p className="lg:text-[5rem] text-[3rem] text-[white] font-black leading-[1em] uppercase">
               The all-in One bank app.{" "}
             </p>
             <span className="flex flex-col gap-[0.2rem]">
-              <p className="lg:text-[0.8rem] text-[white] w-[280px] font-semibold">
+              <p className="lg:text-[1rem] text-[white] w-[20rem] font-semibold">
                 Why use like 20 different banking apps when you can use one that
                 works well and does all of them ?
               </p>
@@ -62,9 +62,9 @@ const Home = () => {
               </button>
             </span>
           </span>
-          {/* <div className="absolute w-[300px] right-[30rem] top-[15rem] border-[5px] rounded-[30px] border-gray bg-[black] bg-opacity-5 p-4 max-w-xs mx-auto">
+          <div className="absolute w-[300px] right-[30rem] top-[15rem] border-[5px] rounded-[30px] border-gray bg-[black] bg-opacity-5 p-4 max-w-xs mx-auto">
             <img className="w-full " src={Comp1} />
-          </div> */}
+          </div>
         </div>
       </section>
       {/* Cool shit you can do with Almond section */}
@@ -182,10 +182,11 @@ const Home = () => {
           </button>
         </div>
         <div className=" justify-start flex lg:w-full md:w-full md:justify-center ">
-          <img
+          {/* <img
             className="lg:w-[20rem] md:w-[18rem] w-[15rem] rounded-[20px]"
             src={r5}
-          />
+          /> */}
+          <Spline scene="https://prod.spline.design/hKwXHwuN6kawj5SH/scene.splinecode" />
         </div>
       </section>
       <section className="h-screen md:h-[100vh] flex lg:flex-row   flex-col-reverse gap-[1rem] justify-center items-center object-center lg:mt-[0] ">
