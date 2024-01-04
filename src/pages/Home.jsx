@@ -21,15 +21,33 @@ import "swiper/css/scrollbar";
 import "swiper/swiper-bundle.css";
 import Spline from "@splinetool/react-spline";
 
-import Comp1 from "../assets/comp-1.png";
-import r1 from "../assets/r-1.jpg";
-import r2 from "../assets/r-2.jpg";
-import r3 from "../assets/r-3.jpg";
-import r4 from "../assets/r-4.jpg";
-import r5 from "../assets/r-5.jpg";
+import Comp1 from "../assets/comp1.png";
+import Comp2 from "../assets/comp2.png";
+import Comp3 from "../assets/comp3.png";
+import Comp4 from "../assets/comp4.png";
+import Comp5 from "../assets/comp5.png";
+import Comp6 from "../assets/comp6.svg";
+import Comp7 from "../assets/comp7.svg";
+import Comp8 from "../assets/comp8.svg";
+import Comp9 from "../assets/comp9.svg";
+import gold from "../assets/gold.jpg";
+import grains from "../assets/grains.jpg";
+import oil from "../assets/oil.jpg";
+import commodity from "../assets/Commodities.jpg";
+
 import { useState } from "react";
 import Menu from "../components/Menu";
+
 const Home = () => {
+  const options = [grains, oil, gold];
+  const [active, setActive] = useState(0);
+  const [background, setBackground] = useState(grains);
+  const changeBackground = (e) => {
+    const target = e.target;
+    const pos = target.id;
+    setActive(pos);
+    setBackground(options[pos]);
+  };
   const swiperSlide = useSwiperSlide();
   const [dropdown, setDropdown] = useState(false);
   const menuClick = () => {
@@ -62,8 +80,8 @@ const Home = () => {
               </button>
             </span>
           </span>
-          <div className="absolute w-[300px] right-[30rem] top-[15rem] border-[5px] rounded-[30px] border-gray bg-[black] bg-opacity-5 p-4 max-w-xs mx-auto">
-            <img className="w-full " src={Comp1} />
+          <div class="border-solid border-r-[3px] border-l-[3px] border-t-[3px] border-gray-300 border- absolute right-[20rem] top-[13.5rem] w-[26rem]  h-[31rem] rounded-[30px] bg-[black]  bg-opacity-5">
+            <img className="      bg-opacity-5" src={Comp1} />
           </div>
         </div>
       </section>
@@ -83,10 +101,10 @@ const Home = () => {
           </p>
         </div>
         {/* Slide */}
-        <div className="lg:w-[50vw] w-[200vw] flex items-center justify-center mt-[3rem]">
+        <div className="lg:w-[50vw] w-[200vw] flex items-center justify-center mt-[3rem] ">
           <Swiper
             slidesPerView={3}
-            spaceBetween={-20}
+            spaceBetween={10}
             centeredSlides={true}
             className="myswiper"
             style={{
@@ -107,16 +125,16 @@ const Home = () => {
             modules={[Autoplay, Pagination, Navigation]}
           >
             <SwiperSlide>
-              <Slide src={r2} />
+              <Slide src={Comp3} />
             </SwiperSlide>
             <SwiperSlide>
-              <Slide src={r2} />
+              <Slide src={Comp2} />
             </SwiperSlide>
             <SwiperSlide>
-              <Slide src={r3} />
+              <Slide src={Comp4} />
             </SwiperSlide>
             <SwiperSlide>
-              <Slide src={r4} />
+              <Slide src={Comp5} />
             </SwiperSlide>
           </Swiper>
         </div>
@@ -182,18 +200,18 @@ const Home = () => {
           </button>
         </div>
         <div className=" justify-start flex lg:w-full md:w-full md:justify-center ">
-          {/* <img
+          <img
             className="lg:w-[20rem] md:w-[18rem] w-[15rem] rounded-[20px]"
-            src={r5}
-          /> */}
-          <Spline scene="https://prod.spline.design/hKwXHwuN6kawj5SH/scene.splinecode" />
+            src={Comp6}
+          />
+          {/* <Spline scene="https://prod.spline.design/hKwXHwuN6kawj5SH/scene.splinecode" /> */}
         </div>
       </section>
       <section className="h-screen md:h-[100vh] flex lg:flex-row   flex-col-reverse gap-[1rem] justify-center items-center object-center lg:mt-[0] ">
         <div className="justify-start flex lg:w-full md:w-full md:justify-center">
           <img
             className="lg:w-[20rem] md:w-[19rem] w-[15rem] rounded-[20px]"
-            src={r2}
+            src={Comp8}
           />
         </div>
         <div
@@ -222,12 +240,71 @@ const Home = () => {
             anti-scam protection, and proactive fund retrieval
             efforts—safeguarding your financial peace in every scenario
           </p>
-          <button className="w-[100px] h-[40px] rounded-2xl bg-[#15F4B1] cursor-pointer hover:bg-[#10c28c] font-semibold text-[black] mt-[1rem]">
+          <button className="rounded-[1rem] p-[1rem] bg-[#15F4B1] cursor-pointer hover:bg-[#10c28c] font-semibold text-[black] mt-[1rem]">
             try it
           </button>
         </div>
 
         <div></div>
+      </section>
+      <section
+        className="bg-cover bg-center h-screen flex gap-[2rem] items-center flex-col justify-start overflow-x-hidden transition-all duration-1000 ease-in-out"
+        style={{ backgroundImage: `url(${background})` }}
+      >
+        <p className="font-extrabold lg:text-[3rem] lg:mt-[3rem] lg:w-[40rem]  md:w-[35rem] w-[20rem] text-[2rem] uppercase lg:text-center text-start leading-[1em] text-[white]">
+          Invest in Grains, Oil, and Precious Metal
+        </p>
+        <span className="flex flex-col gap-[0.7rem]">
+          <p className="text-white font-bold text-[1rem]">
+            {" "}
+            Unlock a Bountiful Portfolio with Commodities
+          </p>
+          <p className="text-white font-light md:w-[35rem] w-[20rem] ">
+            From nutrient-rich grains to the energy potential of crude oil and
+            the timeless allure of gold and precious metals, seize the
+            opportunity to cultivate both your table and your wealth. Delve into
+            fields of financial growth, where every investment is a harvest of
+            prosperity.
+          </p>
+        </span>
+        <button className="text-[black] bg-white hover:bg-[#c4c3c3] font-medium rounded-[1rem] p-[1rem] cursor-pointer">
+          Sign up now
+        </button>
+        <div className="flex justify-center items-center gap-[2rem]">
+          <span
+            className={` transition-all duration-500 ease-in-out ${
+              active == 0
+                ? "py-[0.5rem] px-[2rem] bg-[white] text-black font-medium rounded-[20px] border-white border-[0.1rem] cursor-pointer"
+                : "py-[0.5rem] px-[2rem] bg-white/25 hover:bg-white/35 font-medium text-white rounded-[20px] border-white border-[0.1rem] backdrop-blur-lg cursor-pointer"
+            }  `}
+            id="0"
+            onClick={changeBackground}
+          >
+            Grains🌽
+          </span>
+          <span
+            className={`transition-all duration-500 ease-in-out ${
+              active == 1
+                ? "py-[0.5rem] px-[2rem] bg-[white] text-black font-medium rounded-[20px] border-white border-[0.1rem] cursor-pointer"
+                : "py-[0.5rem] px-[2rem] bg-white/25 hover:bg-white/35 font-medium text-white rounded-[20px] border-white border-[0.1rem] backdrop-blur-lg cursor-pointer"
+            }  `}
+            id="1"
+            onClick={changeBackground}
+          >
+            Oil 🛢️
+          </span>
+          <span
+            className={` transition-all duration-500 ease-in-out ${
+              active == 2
+                ? "py-[0.5rem] px-[2rem] bg-[white] text-black font-medium rounded-[20px] border-white border-[0.1rem] cursor-pointer"
+                : "py-[0.5rem] px-[2rem] bg-white/25 hover:bg-white/35 font-medium text-white rounded-[20px] border-white border-[0.1rem] backdrop-blur-lg cursor-pointer"
+            }  `}
+            id="2"
+            onClick={changeBackground}
+          >
+            Metal 🧈🧈
+          </span>
+        </div>
       </section>
       <Footer />
     </div>
