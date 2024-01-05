@@ -33,8 +33,7 @@ const Footer = ({ ref }) => {
           </svg>
         </span>
         <p className="text-[1rem] text-[gray] w-[15rem]">
-          16, ikot mbo layout, murtala mohammed highway, calabar, cross river
-          state, Nigeria
+          No 12 abimbola Omowunmi Close, Labak estate, New Oko-oba. Lagos State.
         </p>
       </span>
       <span className="flex flex-col gap-[0.8rem]">
@@ -53,7 +52,7 @@ const Footer = ({ ref }) => {
               fill="white"
             />
           </svg>
-          <p className="text-[gray] text-[1rem] ">+234905695381</p>
+          <p className="text-[gray] text-[1rem] ">+2348028798164</p>
         </span>
         <span className="flex gap-[1rem]">
           <svg
@@ -65,11 +64,11 @@ const Footer = ({ ref }) => {
           >
             <path d="m502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7v204.5c0 26.5-21.5 48-48 48h-416c-26.5 0-48-21.5-48-48v-204.4c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zm-246.3 129.2c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48h-416c-26.5 0-48 21.5-48 48v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z" />
           </svg>
-          <p className="text-[gray] text-[1rem] ">admin@almondapp.com</p>
+          <p className="text-[gray] text-[1rem] ">admin@almondnigeria.com</p>
         </span>
       </span>
       <div className="flex gap-[1rem] lg:relative absolute lg:scale-[1.2] scale-[0.8] right-[10px] pt-[0.8rem]">
-        <a href="/#">
+        <a href="https://www.instagram.com/almondapp.ng/">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             x="0px"
@@ -78,6 +77,7 @@ const Footer = ({ ref }) => {
             height="24"
             viewBox="0 0 24 24"
             fill="white"
+            className="cursor-pointer hover:scale-105"
           >
             <path d="M 8 3 C 5.239 3 3 5.239 3 8 L 3 16 C 3 18.761 5.239 21 8 21 L 16 21 C 18.761 21 21 18.761 21 16 L 21 8 C 21 5.239 18.761 3 16 3 L 8 3 z M 18 5 C 18.552 5 19 5.448 19 6 C 19 6.552 18.552 7 18 7 C 17.448 7 17 6.552 17 6 C 17 5.448 17.448 5 18 5 z M 12 7 C 14.761 7 17 9.239 17 12 C 17 14.761 14.761 17 12 17 C 9.239 17 7 14.761 7 12 C 7 9.239 9.239 7 12 7 z M 12 9 A 3 3 0 0 0 9 12 A 3 3 0 0 0 12 15 A 3 3 0 0 0 15 12 A 3 3 0 0 0 12 9 z"></path>
           </svg>

@@ -45,6 +45,7 @@ const Home = () => {
   const [background, setBackground] = useState(grains);
   const [popUp, setPopup] = useState(false);
   const contactUs = useRef(null);
+  const transformTemplate = ({ scale }) => `scale(${scale})`;
   const contactClick = () => {
     console.log("scroll");
     console.log(contactUs.current);
@@ -201,21 +202,20 @@ const Home = () => {
 
           <div className="w-full  h-[60vh] flex justify-center items-center ">
             <motion.img
-              initial={{ opacity: 1, rotate: 50, x: 100 }}
-              whileHover={{ opacity: 1, rotate: 50, x: 100 }}
+              initial={{ opacity: 0, rotate: 50, x: 100 }}
+              layout
               whileInView={{
+                rotate: [50, 30, 20, 10, 0],
                 opacity: 1,
-                rotate: 0,
                 x: 0,
               }}
               transition={{ duration: 3 }}
+              transformTemplate={transformTemplate}
               src={card1}
-              className="relative lg:scale-100 md:scale-100 scale-[0.7] lg:left-[12rem] md:left-[15rem] left-[17rem] "
+              className="relative lg:scale-100 md:scale-80 scale-70 lg:left-[12rem] md:left-[15rem] left-[17rem] "
             />
             <motion.img
               initial={{ opacity: 1, x: -200, rotate: -20 }}
-              drag
-              whileHover={{ opacity: 1, x: -200, rotate: -20 }}
               whileInView={{
                 opacity: 1,
                 rotate: 0,
@@ -227,13 +227,9 @@ const Home = () => {
             />
             <motion.img
               className="  lg:scale-100 scale-[0.7]  md:scale-100 relative lg:right-[25rem]  right-[23rem] "
+              sty
               src={card3}
             />
-            {/* <Spline
-              scene="https://prod.spline.design/jkIwlR-DuCdLVZ20/scene.splinecode"
-              className="w-[50%]"
-              style={{ width: "100%" }}
-            /> */}
           </div>
         </div>
       </section>
@@ -256,7 +252,7 @@ const Home = () => {
            md:w-[35rem] w-[20rem]
            md:leading-[2.8rem] leading-[2rem]"
           >
-            SEND AND RECEIVE MOENY FROM ACROSS THE GLOBE
+            SEND AND RECEIVE MONEY FROM ACROSS THE GLOBE
           </p>
           <p className="lg:text-[1rem] text-[0.8rem] mt-[0.8rem] font-semibold   md:w-[35rem] w-[20rem]">
             Seamless Cross-Border Transactions: Receive money effortlessly with
@@ -320,21 +316,24 @@ const Home = () => {
         <div></div>
       </section>
       <section
-        className="bg-cover bg-center lg:h-screen h-[80vh] flex gap-[2rem] items-center flex-col justify-start overflow-x-hidden transition-all duration-1000 ease-in-out"
+        className="bg-cover bg-center lg:h-screen h-[100vh]  flex gap-[2rem] items-center flex-col justify-start  transition-all duration-1000 ease-in-out"
         style={{ backgroundImage: `url(${background})` }}
       >
         <motion.p
           initial={{ opacity: 0, y: -100 }}
           whileInView={{ opacity: [0, 0.5, 1], y: 0 }}
           transition={{ duration: 2 }}
-          className="font-extrabold lg:text-[3rem] lg:mt-[3rem] lg:w-[40rem]  md:w-[35rem] w-[20rem] text-[2rem] uppercase lg:text-center text-start leading-[1em] text-[white]"
+          className="font-extrabold
+          lg:text-[3rem] lg:mt-[3rem] lg:w-[40rem]
+            md:w-[35rem] w-[20rem] text-[2rem] uppercase
+            lg:text-center text-start leading-[1em] text-[white]"
         >
           Invest in Grains, Oil, and Precious Metal
         </motion.p>
         <motion.span
           initial={{ opacity: 0, x: 200 }}
           whileInView={{ opacity: [0, 0.5, 1], x: 0 }}
-          transition={{ duration: 2, delay: 0.1 }}
+          transition={{ duration: 2 }}
           className="flex flex-col gap-[0.7rem]"
         >
           <p className="text-white font-bold text-[1rem]">
@@ -359,7 +358,7 @@ const Home = () => {
           <motion.span
             initial={{ opacity: 0, x: -100 }}
             whileInView={{ opacity: [0, 0.5, 1], x: 0 }}
-            transition={{ duration: 2, delay: 0.3 }}
+            transition={{ duration: 2 }}
             className={` transition-all duration-500 ease-in-out ${
               active == 0
                 ? "py-[0.5rem] px-[2rem] bg-[white] text-black font-medium rounded-[20px] border-white border-[0.1rem] cursor-pointer"
@@ -373,7 +372,7 @@ const Home = () => {
           <motion.span
             initial={{ opacity: 0, x: -100 }}
             whileInView={{ opacity: [0, 0.5, 1], x: 0 }}
-            transition={{ duration: 2, delay: 0.5 }}
+            transition={{ duration: 2 }}
             className={`transition-all duration-500 ease-in-out ${
               active == 1
                 ? "py-[0.5rem] px-[2rem] bg-[white] text-black font-medium rounded-[20px] border-white border-[0.1rem] cursor-pointer"
@@ -387,7 +386,7 @@ const Home = () => {
           <motion.span
             initial={{ opacity: 0, x: -100 }}
             whileInView={{ opacity: [0, 0.5, 1], x: 0 }}
-            transition={{ duration: 2, delay: 0.7 }}
+            transition={{ duration: 2 }}
             className={` transition-all duration-500 ease-in-out ${
               active == 2
                 ? "py-[0.5rem] px-[2rem] bg-[white] text-black font-medium rounded-[20px] border-white border-[0.1rem] cursor-pointer"
