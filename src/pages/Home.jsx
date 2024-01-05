@@ -48,7 +48,7 @@ const Home = () => {
   const contactClick = () => {
     console.log("scroll");
     console.log(contactUs.current);
-    contactUs.current.scrollIntoView({ behavior: "smooth" });
+    contactUs.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   const handleRegister = () => {
