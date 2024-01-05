@@ -31,7 +31,7 @@ const RegisterPopup = ({ popup, handleClick }) => {
         popup ? "block" : "hidden"
       } w-screen h-screen bg-black/25 fixed flex justify-center items-center z-[100]`}
     >
-      <div className="lg:w-[40%] h-[60%] md:h-[40%] md:w-[50%] bg-white z-100 rounded-2xl flex flex-col items-center ">
+      <div className="lg:w-[40%] h-[60%] lg:h-[60%] md:h-[40%] md:w-[50%] bg-white z-100 rounded-2xl flex flex-col items-center ">
         <span
           className="w-full flex items-center justify-end mr-[2rem] mt-[1rem] cursor-pointer "
           onClick={handleClick}
