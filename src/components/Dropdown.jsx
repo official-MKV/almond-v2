@@ -9,7 +9,7 @@ const Dropdown = ({ handleClick, dropdown }) => {
       }`}
     >
       <span
-        className="w-full flex items-center h-[5vh]  ml-[20rem] mt-[2rem]"
+        className="w-full flex items-center h-[5vh]  ml-[20rem] md:ml-[43rem] mt-[2rem]"
         onClick={handleClick}
       >
         <svg
@@ -62,6 +62,7 @@ const Dropdown = ({ handleClick, dropdown }) => {
             className="
             hover:cursor-pointer
             hover:font-medium
+            md:text-[1.5rem]
             hover:bg-[#7D5DF6] rounded-[20px]
             px-[30px] py-[5px]
           text-[white]
@@ -75,6 +76,7 @@ const Dropdown = ({ handleClick, dropdown }) => {
             className="
             hover:cursor-pointer
             hover:font-medium
+            md:text-[1.5rem]
             hover:bg-[#7D5DF6] rounded-[20px]
             px-[30px] py-[5px]
              ease-in-out duration-200
@@ -89,6 +91,7 @@ const Dropdown = ({ handleClick, dropdown }) => {
             className="
             hover:cursor-pointer
             hover:font-medium
+            md:text-[1.5rem]
             hover:bg-[#7D5DF6] rounded-[20px]
             px-[30px] py-[5px]
             hover:text-[white]
@@ -101,6 +104,7 @@ const Dropdown = ({ handleClick, dropdown }) => {
           <a
             className="
             hover:cursor-pointer
+            md:text-[1.5rem]
             hover:bg-[#7D5DF6] rounded-[20px]
             hover:font-medium
             px-[30px] py-[5px]

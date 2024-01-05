@@ -4,19 +4,20 @@ import Logo from "../assets/logo-2.svg";
 const Nav = ({ handleClick, dropdown }) => {
   return (
     <div className="w-full h-[10vh]  flex flex-row items-center justify-center   text-[white] absolute font-semibold">
-      <div className="lg:w-[50vw] w-full lg:px-[0rem] px-[2rem] flex flex-row justify-between items-center ">
+      <div className="lg:w-[50vw] md:w-full w-full lg:px-[0rem] px-[2rem] flex flex-row justify-between items-center ">
         <img src={Logo} className="w-[120px]" />
-        <span className="lg:flex hidden  w-full  gap-[2rem] items-center  list-none justify-between ">
+        <span className="lg:flex hidden  w-full   items-center  list-none justify-between mx-10  ">
           <li className="">
             <a
               className="
             hover:cursor-pointer
             hover:bg-[#7D5DF6] rounded-[20px]
             px-[30px] py-[5px]
+            text-[0.8rem]
             hover:text-[white]
              ease-in-out duration-200 "
             >
-              How it works ?
+              About us
             </a>
           </li>
           <li>

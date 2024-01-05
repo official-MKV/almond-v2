@@ -61,36 +61,45 @@ const Home = () => {
 
   return (
     <div className="overflow-x-hidden">
-      {/* <Menu dropdown menuClick={menuClick} /> */}
       <Nav handleClick={menuClick} dropdown={dropdown} />
       <Dropdown handleClick={menuClick} dropdown={dropdown} />
       <RegisterPopup popup={popUp} handleClick={handleRegister} />
-      {/* Hero section */}
+
       <section
         className="bg-cover bg-center h-screen flex justify-center items-center overflow-x-hidden"
         style={{ backgroundImage: `url(${Hero})` }}
       >
-        <div className="flex justify-center items-center text-left w-[50vw]">
-          <span className="z-[50] relative lg:bottom-[0rem] bottom-[5rem] flex gap-[2rem] flex-col">
-            <p className="lg:text-[5rem] text-[3rem] text-[white] font-black leading-[1em] uppercase">
+        <div className="flex justify-center items-center text-left lg:w-[50vw] md:w-[70vw] h-full w-[100vw]">
+          <span className="z-[50] relative lg:bottom-[0rem] bottom-[5rem] flex lg:gap-[2rem] flex-col w-full px-[1rem]">
+            <p className="lg:text-[5rem] md:text-[4rem] text-[3rem] text-[white] font-black leading-[1em] uppercase">
               The all-in One bank app.{" "}
             </p>
             <span className="flex flex-col gap-[0.2rem]">
-              <p className="lg:text-[1rem] text-[white] w-[20rem] font-semibold">
-                Why use like 20 different banking apps when you can use one that
-                works well and does all of them ?
+              <p className="lg:text-[1rem] text-[0.8rem] text-[white] lg:w-[30rem] font-semibold">
+                Discover unprecedented ease and empowerment with Almond—the
+                all-in-one bank app. From intuitive interfaces to personalized
+                solutions, cutting-edge tech, and swift support, we simplify,
+                secure, and enhance your financial journey. Welcome to elevated
+                banking.
               </p>
 
               <button
                 onClick={handleRegister}
-                className="rounded-[1rem] lg:w-[300px] md:p-[1rem] bg-[#15F4B1] cursor-pointer hover:bg-[#10c28c] font-semibold text-[black]"
+                className="rounded-[1rem] lg:w-[20%] md:p-[1rem] w-[8rem] py-[1rem] mx-auto bg-[#15F4B1] cursor-pointer hover:bg-[#10c28c]  font-semibold text-[Black]"
               >
-                get app
+                Get app now
               </button>
             </span>
           </span>
-          <div class="border-solid border-r-[3px] border-l-[3px] border-t-[3px] border-gray-300 border- absolute right-[20rem] md:right-[12rem]  top-[13.5rem] md:top-[35rem] w-[26rem] md:scale-[0.7] h-[31rem] rounded-[30px] bg-[black]  bg-opacity-5">
-            <img className="      bg-opacity-5" src={Comp1} />
+          <div
+            class="border-solid border-r-[3px] border-l-[3px] border-t-[3px]
+         border-gray-300 absolute  bg-[black]
+         top-[55vh] right-[0rem] mx-[2rem] h-[18rem] rounded-[30px]
+         md:scale-[1] md:mx-[5rem]  md:h-[43vh] md:top-[35rem] md:rounded-[30px]
+          lg:scale-[0.4] lg:absolute lg:left-[30rem] lg:h-full lg:top-[10rem]
+         bg-opacity-5"
+          >
+            <img className="bg-opacity-5" src={Comp1} />
           </div>
         </div>
       </section>
@@ -268,7 +277,7 @@ const Home = () => {
         <div></div>
       </section>
       <section
-        className="bg-cover bg-center h-screen md:h-[60vh] flex gap-[2rem] items-center flex-col justify-start overflow-x-hidden transition-all duration-1000 ease-in-out"
+        className="bg-cover bg-center lg:h-screen h-[80vh] flex gap-[2rem] items-center flex-col justify-start overflow-x-hidden transition-all duration-1000 ease-in-out"
         style={{ backgroundImage: `url(${background})` }}
       >
         <p className="font-extrabold lg:text-[3rem] lg:mt-[3rem] lg:w-[40rem]  md:w-[35rem] w-[20rem] text-[2rem] uppercase lg:text-center text-start leading-[1em] text-[white]">
@@ -289,7 +298,7 @@ const Home = () => {
         </span>
         <button
           onClick={handleRegister}
-          className="text-[black] bg-white hover:bg-[#c4c3c3] font-medium rounded-[1rem] p-[1rem] cursor-pointer"
+          className="text-[black] bg-[#15F4B1] hover:bg-[#c4c3c3] font-medium rounded-[1rem] p-[1rem] cursor-pointer"
         >
           Sign up now
         </button>
