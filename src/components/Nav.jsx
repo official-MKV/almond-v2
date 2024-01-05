@@ -1,7 +1,10 @@
 import React from "react";
 import Logo from "../assets/logo-2.svg";
+import { useRef } from "react";
 
-const Nav = ({ handleClick, dropdown }) => {
+const Nav = ({ handleClick, dropdown, contact }) => {
+  const ContactUs = useRef(null);
+
   return (
     <div className="w-full h-[10vh]  flex flex-row items-center justify-center   text-[white] absolute font-semibold">
       <div className="lg:w-[50vw] md:w-full w-full lg:px-[0rem] px-[2rem] flex flex-row justify-between items-center ">
@@ -23,6 +26,7 @@ const Nav = ({ handleClick, dropdown }) => {
           <li>
             <a
               className="
+              text-[0.8rem]
             hover:cursor-pointer
             hover:bg-[#7D5DF6] rounded-[20px]
             px-[30px] py-[5px]
@@ -36,6 +40,7 @@ const Nav = ({ handleClick, dropdown }) => {
           <li>
             <a
               className="
+              text-[0.8rem]
             hover:cursor-pointer
             hover:bg-[#7D5DF6] rounded-[20px]
             px-[30px] py-[5px]
@@ -46,7 +51,18 @@ const Nav = ({ handleClick, dropdown }) => {
             </a>
           </li>
           <li>
-            <a>Contact us</a>
+            <a
+              className="
+             text-[0.8rem]
+           hover:cursor-pointer
+           hover:bg-[#7D5DF6] rounded-[20px]
+           px-[30px] py-[5px]
+           hover:text-[white]
+            ease-in-out duration-200 "
+              onClick={contact}
+            >
+              Contact us
+            </a>
           </li>
         </span>
         <div className="flex">

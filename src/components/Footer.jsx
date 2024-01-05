@@ -1,9 +1,13 @@
 import React from "react";
 import logo from "../assets/logo-1.svg";
+import { forwardRef } from "react";
 
-const Footer = () => {
+const Footer = ({ ref }) => {
   return (
-    <div className="w-full h-[50vh] bg-[black] flex flex-col lg:flex-row lg:gap-[0rem] gap-[0.5rem] justify-between items-start lg:py-[8rem] py-[5rem] lg:px-[5rem] px-[2rem]">
+    <div
+      ref={ref}
+      className="w-full h-[50vh] bg-[black] flex flex-col lg:flex-row lg:gap-[0rem] gap-[0.5rem] justify-between items-start lg:py-[8rem] py-[5rem] lg:px-[5rem] px-[2rem]"
+    >
       <img src={logo} className="lg:w-[10rem] w-[5rem]" />
       <div className=" lg:hidden w-[87vw] bg-[gray] h-[1px] mt-[-2rem] "></div>
       <span>

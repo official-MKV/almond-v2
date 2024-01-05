@@ -6,6 +6,7 @@ import Footer from "../components/Footer";
 import Slide from "../components/Slide";
 import Dropdown from "../components/Dropdown";
 import RegisterPopup from "../components/RegisterPopup";
+import { motion } from "framer-motion";
 
 import {
   Navigation,
@@ -36,13 +37,19 @@ import oil from "../assets/oil.jpg";
 import card1 from "../assets/card-1.png";
 import card2 from "../assets/card-2.png";
 import card3 from "../assets/card-3.png";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 const Home = () => {
   const options = [grains, oil, gold];
   const [active, setActive] = useState(0);
   const [background, setBackground] = useState(grains);
   const [popUp, setPopup] = useState(false);
+  const contactUs = useRef(null);
+  const contactClick = () => {
+    console.log("scroll");
+    console.log(contactUs.current);
+    contactUs.current.scrollIntoView({ behavior: "smooth" });
+  };
 
   const handleRegister = () => {
     setPopup(!popUp);
@@ -61,7 +68,7 @@ const Home = () => {
 
   return (
     <div className="overflow-x-hidden">
-      <Nav handleClick={menuClick} dropdown={dropdown} />
+      <Nav handleClick={menuClick} dropdown={dropdown} contact={contactClick} />
       <Dropdown handleClick={menuClick} dropdown={dropdown} />
       <RegisterPopup popup={popUp} handleClick={handleRegister} />
 
@@ -71,17 +78,27 @@ const Home = () => {
       >
         <div className="flex justify-center items-center text-left lg:w-[50vw] md:w-[70vw] h-full w-[100vw]">
           <span className="z-[50] relative lg:bottom-[0rem] bottom-[5rem] flex lg:gap-[2rem] flex-col w-full px-[1rem]">
-            <p className="lg:text-[5rem] md:text-[4rem] text-[3rem] text-[white] font-black leading-[1em] uppercase">
+            <motion.p
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 3 }}
+              initial={{ opacity: 0, y: -200 }}
+              className="lg:text-[5rem] md:text-[4rem] text-[3rem] text-[white] font-black leading-[1em] uppercase"
+            >
               The all-in One bank app.{" "}
-            </p>
+            </motion.p>
             <span className="flex flex-col gap-[0.2rem]">
-              <p className="lg:text-[1rem] text-[0.8rem] text-[white] lg:w-[30rem] font-semibold">
+              <motion.p
+                whileInView={{ x: 0, opacity: 1 }}
+                transition={{ duration: 3, delay: 1 }}
+                initial={{ opacity: 0, x: -200 }}
+                className="lg:text-[1rem] text-[0.8rem] text-[white] lg:w-[30rem] font-semibold"
+              >
                 Discover unprecedented ease and empowerment with Almond—the
                 all-in-one bank app. From intuitive interfaces to personalized
                 solutions, cutting-edge tech, and swift support, we simplify,
                 secure, and enhance your financial journey. Welcome to elevated
                 banking.
-              </p>
+              </motion.p>
 
               <button
                 onClick={handleRegister}
@@ -158,7 +175,12 @@ const Home = () => {
       </section>
       <section className="h-screen flex flex-col bg-[black]  ">
         <div className="flex-[0.2] w-full flex flex-col justify-center items-center text-center ">
-          <div className="flex flex-col justify-center items-center mt-[6rem] gap-[0.5rem] lg:w-[35rem]  md:w-[35rem] w-[20rem]">
+          <motion.div
+            initial={{ opacity: 0, y: -100 }}
+            whileInView={{ opacity: [0, 0.5, 1], y: 0 }}
+            transition={{ duration: 2 }}
+            className="flex flex-col justify-center items-center mt-[6rem] gap-[0.5rem] lg:w-[35rem]  md:w-[35rem] w-[20rem]"
+          >
             <p
               className="font-black lg:text-[3.5rem]
               md:text-[3rem]  text-[white] text-[2rem]
@@ -175,18 +197,35 @@ const Home = () => {
             <p className=" w-full font-light text-[0.8rem] text-[white] lg:text-center text-start md:text-center">
               Some cards are only available on subscription plans
             </p>
-          </div>
+          </motion.div>
 
           <div className="w-full  h-[60vh] flex justify-center items-center ">
-            <img
+            <motion.img
+              initial={{ opacity: 1, rotate: 50, x: 100 }}
+              whileHover={{ opacity: 1, rotate: 50, x: 100 }}
+              whileInView={{
+                opacity: 1,
+                rotate: 0,
+                x: 0,
+              }}
+              transition={{ duration: 3 }}
               src={card1}
-              className="relative lg:scale-100 md:scale-100 scale-[0.7] lg:left-[12rem] md:left-[15rem] left-[17rem]  hover:rotate-90 transition-all duration-500 ease-in"
+              className="relative lg:scale-100 md:scale-100 scale-[0.7] lg:left-[12rem] md:left-[15rem] left-[17rem] "
             />
-            <img
+            <motion.img
+              initial={{ opacity: 1, x: -200, rotate: -20 }}
+              drag
+              whileHover={{ opacity: 1, x: -200, rotate: -20 }}
+              whileInView={{
+                opacity: 1,
+                rotate: 0,
+                x: 0,
+              }}
+              transition={{ duration: 3 }}
               className=" lg:scale-100 scale-[0.7] md:scale-100  relative lg:left-[7rem] md:left-[6rem] left-[5rem] "
               src={card2}
             />
-            <img
+            <motion.img
               className="  lg:scale-100 scale-[0.7]  md:scale-100 relative lg:right-[25rem]  right-[23rem] "
               src={card3}
             />
@@ -229,7 +268,9 @@ const Home = () => {
           </button>
         </div>
         <div className=" justify-start flex lg:w-full md:w-full md:justify-center ">
-          <img
+          <motion.img
+            whileInView={{ rotateZ: 360 }}
+            transition={{ duration: 2 }}
             className="lg:w-[20rem] md:w-[18rem] w-[15rem] rounded-[20px]"
             src={Comp6}
           />
@@ -238,7 +279,9 @@ const Home = () => {
       </section>
       <section className="h-screen md:h-[100vh] flex lg:flex-row   flex-col-reverse gap-[1rem] justify-center items-center object-center lg:mt-[0] ">
         <div className="justify-start flex lg:w-full md:w-full md:justify-center">
-          <img
+          <motion.img
+            whileInView={{ scale: [1, 0.5, 1] }}
+            transition={{ duration: 2 }}
             className="lg:w-[20rem] md:w-[19rem] w-[15rem] rounded-[20px]"
             src={Comp8}
           />
@@ -280,10 +323,20 @@ const Home = () => {
         className="bg-cover bg-center lg:h-screen h-[80vh] flex gap-[2rem] items-center flex-col justify-start overflow-x-hidden transition-all duration-1000 ease-in-out"
         style={{ backgroundImage: `url(${background})` }}
       >
-        <p className="font-extrabold lg:text-[3rem] lg:mt-[3rem] lg:w-[40rem]  md:w-[35rem] w-[20rem] text-[2rem] uppercase lg:text-center text-start leading-[1em] text-[white]">
+        <motion.p
+          initial={{ opacity: 0, y: -100 }}
+          whileInView={{ opacity: [0, 0.5, 1], y: 0 }}
+          transition={{ duration: 2 }}
+          className="font-extrabold lg:text-[3rem] lg:mt-[3rem] lg:w-[40rem]  md:w-[35rem] w-[20rem] text-[2rem] uppercase lg:text-center text-start leading-[1em] text-[white]"
+        >
           Invest in Grains, Oil, and Precious Metal
-        </p>
-        <span className="flex flex-col gap-[0.7rem]">
+        </motion.p>
+        <motion.span
+          initial={{ opacity: 0, x: 200 }}
+          whileInView={{ opacity: [0, 0.5, 1], x: 0 }}
+          transition={{ duration: 2, delay: 0.1 }}
+          className="flex flex-col gap-[0.7rem]"
+        >
           <p className="text-white font-bold text-[1rem]">
             {" "}
             Unlock a Bountiful Portfolio with Commodities
@@ -295,7 +348,7 @@ const Home = () => {
             fields of financial growth, where every investment is a harvest of
             prosperity.
           </p>
-        </span>
+        </motion.span>
         <button
           onClick={handleRegister}
           className="text-[black] bg-[#15F4B1] hover:bg-[#c4c3c3] font-medium rounded-[1rem] p-[1rem] cursor-pointer"
@@ -303,7 +356,10 @@ const Home = () => {
           Sign up now
         </button>
         <div className="flex lg:flex-row flex-col justify-center items-center gap-[2rem]">
-          <span
+          <motion.span
+            initial={{ opacity: 0, x: -100 }}
+            whileInView={{ opacity: [0, 0.5, 1], x: 0 }}
+            transition={{ duration: 2, delay: 0.3 }}
             className={` transition-all duration-500 ease-in-out ${
               active == 0
                 ? "py-[0.5rem] px-[2rem] bg-[white] text-black font-medium rounded-[20px] border-white border-[0.1rem] cursor-pointer"
@@ -313,8 +369,11 @@ const Home = () => {
             onClick={changeBackground}
           >
             Grains🌽
-          </span>
-          <span
+          </motion.span>
+          <motion.span
+            initial={{ opacity: 0, x: -100 }}
+            whileInView={{ opacity: [0, 0.5, 1], x: 0 }}
+            transition={{ duration: 2, delay: 0.5 }}
             className={`transition-all duration-500 ease-in-out ${
               active == 1
                 ? "py-[0.5rem] px-[2rem] bg-[white] text-black font-medium rounded-[20px] border-white border-[0.1rem] cursor-pointer"
@@ -324,8 +383,11 @@ const Home = () => {
             onClick={changeBackground}
           >
             Oil 🛢️
-          </span>
-          <span
+          </motion.span>
+          <motion.span
+            initial={{ opacity: 0, x: -100 }}
+            whileInView={{ opacity: [0, 0.5, 1], x: 0 }}
+            transition={{ duration: 2, delay: 0.7 }}
             className={` transition-all duration-500 ease-in-out ${
               active == 2
                 ? "py-[0.5rem] px-[2rem] bg-[white] text-black font-medium rounded-[20px] border-white border-[0.1rem] cursor-pointer"
@@ -335,10 +397,10 @@ const Home = () => {
             onClick={changeBackground}
           >
             Metal 🧈🧈
-          </span>
+          </motion.span>
         </div>
       </section>
-      <Footer />
+      <Footer ref={contactUs} />
     </div>
   );
 };
