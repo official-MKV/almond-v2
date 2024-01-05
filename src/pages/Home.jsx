@@ -4,7 +4,8 @@ import Hero from "../assets/hero-2.jpg";
 import { Swiper, SwiperSlide, useSwiperSlide } from "swiper/react";
 import Footer from "../components/Footer";
 import Slide from "../components/Slide";
-import Card from "../assets/card-3.png";
+import Dropdown from "../components/Dropdown";
+import RegisterPopup from "../components/RegisterPopup";
 
 import {
   Navigation,
@@ -19,7 +20,6 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import "swiper/swiper-bundle.css";
-import Spline from "@splinetool/react-spline";
 
 import Comp1 from "../assets/comp1.png";
 import Comp2 from "../assets/comp2.png";
@@ -33,15 +33,20 @@ import Comp9 from "../assets/comp9.svg";
 import gold from "../assets/gold.jpg";
 import grains from "../assets/grains.jpg";
 import oil from "../assets/oil.jpg";
-import commodity from "../assets/Commodities.jpg";
-
+import card1 from "../assets/card-1.png";
+import card2 from "../assets/card-2.png";
+import card3 from "../assets/card-3.png";
 import { useState } from "react";
-import Menu from "../components/Menu";
 
 const Home = () => {
   const options = [grains, oil, gold];
   const [active, setActive] = useState(0);
   const [background, setBackground] = useState(grains);
+  const [popUp, setPopup] = useState(false);
+
+  const handleRegister = () => {
+    setPopup(!popUp);
+  };
   const changeBackground = (e) => {
     const target = e.target;
     const pos = target.id;
@@ -52,20 +57,21 @@ const Home = () => {
   const [dropdown, setDropdown] = useState(false);
   const menuClick = () => {
     setDropdown(!dropdown);
-    console.log(dropdown);
   };
 
   return (
     <div className="overflow-x-hidden">
       {/* <Menu dropdown menuClick={menuClick} /> */}
-      <Nav setDropdown={menuClick} />
+      <Nav handleClick={menuClick} dropdown={dropdown} />
+      <Dropdown handleClick={menuClick} dropdown={dropdown} />
+      <RegisterPopup popup={popUp} handleClick={handleRegister} />
       {/* Hero section */}
       <section
         className="bg-cover bg-center h-screen flex justify-center items-center overflow-x-hidden"
         style={{ backgroundImage: `url(${Hero})` }}
       >
         <div className="flex justify-center items-center text-left w-[50vw]">
-          <span className="z-[100] relative lg:bottom-[0rem] bottom-[5rem] flex gap-[2rem] flex-col">
+          <span className="z-[50] relative lg:bottom-[0rem] bottom-[5rem] flex gap-[2rem] flex-col">
             <p className="lg:text-[5rem] text-[3rem] text-[white] font-black leading-[1em] uppercase">
               The all-in One bank app.{" "}
             </p>
@@ -75,17 +81,19 @@ const Home = () => {
                 works well and does all of them ?
               </p>
 
-              <button className="w-[100px] h-[40px] rounded-2xl bg-[#15F4B1] cursor-pointer hover:bg-[#10c28c] font-semibold text-[black]">
+              <button
+                onClick={handleRegister}
+                className="rounded-[1rem] lg:w-[300px] md:p-[1rem] bg-[#15F4B1] cursor-pointer hover:bg-[#10c28c] font-semibold text-[black]"
+              >
                 get app
               </button>
             </span>
           </span>
-          <div class="border-solid border-r-[3px] border-l-[3px] border-t-[3px] border-gray-300 border- absolute right-[20rem] top-[13.5rem] w-[26rem]  h-[31rem] rounded-[30px] bg-[black]  bg-opacity-5">
+          <div class="border-solid border-r-[3px] border-l-[3px] border-t-[3px] border-gray-300 border- absolute right-[20rem] md:right-[12rem]  top-[13.5rem] md:top-[35rem] w-[26rem] md:scale-[0.7] h-[31rem] rounded-[30px] bg-[black]  bg-opacity-5">
             <img className="      bg-opacity-5" src={Comp1} />
           </div>
         </div>
       </section>
-      {/* Cool shit you can do with Almond section */}
       <section className="h-screen  bg-[white] flex flex-col items-center text-center overflow-x-hidden overflow-y-hidden">
         <div className="flex flex-col justify-center items-center lg:mt-[4rem] md:mt-[4rem] mt-[3rem] gap-[1rem] lg:w-[35rem] w-[20rem]">
           <p className="font-extrabold lg:text-[3.5rem]  text-[2rem] uppercase lg:text-center text-start leading-[1em]">
@@ -160,12 +168,24 @@ const Home = () => {
             </p>
           </div>
 
-          <div className="w-full flex items-center justify-center">
-            <Spline
+          <div className="w-full  h-[60vh] flex justify-center items-center ">
+            <img
+              src={card1}
+              className="relative lg:scale-100 md:scale-100 scale-[0.7] lg:left-[12rem] md:left-[15rem] left-[17rem]  hover:rotate-90 transition-all duration-500 ease-in"
+            />
+            <img
+              className=" lg:scale-100 scale-[0.7] md:scale-100  relative lg:left-[7rem] md:left-[6rem] left-[5rem] "
+              src={card2}
+            />
+            <img
+              className="  lg:scale-100 scale-[0.7]  md:scale-100 relative lg:right-[25rem]  right-[23rem] "
+              src={card3}
+            />
+            {/* <Spline
               scene="https://prod.spline.design/jkIwlR-DuCdLVZ20/scene.splinecode"
               className="w-[50%]"
               style={{ width: "100%" }}
-            />
+            /> */}
           </div>
         </div>
       </section>
@@ -195,7 +215,7 @@ const Home = () => {
             your universal account number, bridging the gap between continents,
             from the USA and the UK to Morocco.
           </p>
-          <button className="w-[180px] h-[40px] rounded-2xl bg-[#15F4B1] cursor-pointer hover:bg-[#10c28c] font-semibold text-[black] my-[1rem]">
+          <button className="rounded-[1rem] p-[1rem]  bg-[#15F4B1] cursor-pointer hover:bg-[#10c28c] font-semibold text-[black] my-[1rem]">
             See how it works
           </button>
         </div>
@@ -248,7 +268,7 @@ const Home = () => {
         <div></div>
       </section>
       <section
-        className="bg-cover bg-center h-screen flex gap-[2rem] items-center flex-col justify-start overflow-x-hidden transition-all duration-1000 ease-in-out"
+        className="bg-cover bg-center h-screen md:h-[60vh] flex gap-[2rem] items-center flex-col justify-start overflow-x-hidden transition-all duration-1000 ease-in-out"
         style={{ backgroundImage: `url(${background})` }}
       >
         <p className="font-extrabold lg:text-[3rem] lg:mt-[3rem] lg:w-[40rem]  md:w-[35rem] w-[20rem] text-[2rem] uppercase lg:text-center text-start leading-[1em] text-[white]">
@@ -267,10 +287,13 @@ const Home = () => {
             prosperity.
           </p>
         </span>
-        <button className="text-[black] bg-white hover:bg-[#c4c3c3] font-medium rounded-[1rem] p-[1rem] cursor-pointer">
+        <button
+          onClick={handleRegister}
+          className="text-[black] bg-white hover:bg-[#c4c3c3] font-medium rounded-[1rem] p-[1rem] cursor-pointer"
+        >
           Sign up now
         </button>
-        <div className="flex justify-center items-center gap-[2rem]">
+        <div className="flex lg:flex-row flex-col justify-center items-center gap-[2rem]">
           <span
             className={` transition-all duration-500 ease-in-out ${
               active == 0

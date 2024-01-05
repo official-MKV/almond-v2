@@ -1,7 +1,7 @@
 import React from "react";
 import Logo from "../assets/logo-2.svg";
 
-const Nav = ({ setDropdown }) => {
+const Nav = ({ handleClick, dropdown }) => {
   return (
     <div className="w-full h-[10vh]  flex flex-row items-center justify-center   text-[white] absolute font-semibold">
       <div className="lg:w-[50vw] w-full lg:px-[0rem] px-[2rem] flex flex-row justify-between items-center ">
@@ -56,7 +56,7 @@ const Nav = ({ setDropdown }) => {
             viewBox="0 0 50 50"
             className="lg:hidden md:block cursor-pointer"
             fill="white"
-            onClick={setDropdown}
+            onClick={handleClick}
           >
             <path d="M 0 7.5 L 0 12.5 L 50 12.5 L 50 7.5 Z M 0 22.5 L 0 27.5 L 50 27.5 L 50 22.5 Z M 0 37.5 L 0 42.5 L 50 42.5 L 50 37.5 Z"></path>
           </svg>
