@@ -5,18 +5,12 @@ import { Swiper, SwiperSlide, useSwiperSlide } from "swiper/react";
 import Footer from "../components/Footer";
 import Slide from "../components/Slide";
 import Dropdown from "../components/Dropdown";
+import Globe from "../components/Globe";
 import RegisterPopup from "../components/RegisterPopup";
 import { motion } from "framer-motion";
 
-import {
-  Navigation,
-  Pagination,
-  Scrollbar,
-  Autoplay,
-  EffectFade,
-} from "swiper/modules";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css/effect-fade";
-// import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
@@ -27,10 +21,7 @@ import Comp2 from "../assets/comp2.png";
 import Comp3 from "../assets/comp3.png";
 import Comp4 from "../assets/comp4.png";
 import Comp5 from "../assets/comp5.png";
-import Comp6 from "../assets/comp6.svg";
-import Comp7 from "../assets/comp7.svg";
 import Comp8 from "../assets/comp8.svg";
-import Comp9 from "../assets/comp9.svg";
 import gold from "../assets/gold.jpg";
 import grains from "../assets/grains.jpg";
 import oil from "../assets/oil.jpg";
@@ -44,13 +35,6 @@ const Home = () => {
   const [active, setActive] = useState(0);
   const [background, setBackground] = useState(grains);
   const [popUp, setPopup] = useState(false);
-  const contactUs = useRef(null);
-  const transformTemplate = ({ scale }) => `scale(${scale})`;
-  const contactClick = () => {
-    console.log("scroll");
-    console.log(contactUs.current);
-    contactUs.current?.scrollIntoView({ behavior: "smooth" });
-  };
 
   const handleRegister = () => {
     setPopup(!popUp);
@@ -69,7 +53,7 @@ const Home = () => {
 
   return (
     <div className="overflow-x-hidden">
-      <Nav handleClick={menuClick} dropdown={dropdown} contact={contactClick} />
+      <Nav handleClick={menuClick} dropdown={dropdown} black={false} />
       <Dropdown handleClick={menuClick} dropdown={dropdown} />
       <RegisterPopup popup={popUp} handleClick={handleRegister} />
 
@@ -89,8 +73,11 @@ const Home = () => {
             </motion.p>
             <span className="flex flex-col gap-[0.2rem]">
               <motion.p
-                whileInView={{ x: 0, opacity: 1 }}
-                transition={{ duration: 3, delay: 1 }}
+                whileInView={{
+                  x: [-200, -100, -50, 0],
+                  opacity: [0, 0, 0.5, 1],
+                }}
+                transition={{ duration: 2 }}
                 initial={{ opacity: 0, x: -200 }}
                 className="lg:text-[1rem] text-[0.8rem] text-[white] lg:w-[30rem] font-semibold"
               >
@@ -103,9 +90,9 @@ const Home = () => {
 
               <button
                 onClick={handleRegister}
-                className="rounded-[1rem] lg:w-[20%] md:p-[1rem] w-[8rem] py-[1rem] mx-auto bg-[#15F4B1] cursor-pointer hover:bg-[#10c28c]  font-semibold text-[Black]"
+                className="rounded-[1rem] lg:w-[20%] md:p-[1rem] w-[8rem] py-[1rem] mx-auto bg-[#7D5DF6] cursor-pointer hover:bg-[#ECE7FE]  font-bold hover:text-[black] text-[white] "
               >
-                Get app now
+                Get app
               </button>
             </span>
           </span>
@@ -121,22 +108,22 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section className="h-screen  bg-[white] flex flex-col items-center text-center overflow-x-hidden overflow-y-hidden">
+      <section className="lg:h-screen md:h-[100vh] h-[80vh] bg-[white] flex flex-col items-center text-center overflow-x-hidden overflow-y-hidden">
         <div className="flex flex-col justify-center items-center lg:mt-[4rem] md:mt-[4rem] mt-[3rem] gap-[1rem] lg:w-[35rem] w-[20rem]">
           <p className="font-extrabold lg:text-[3.5rem]  text-[2rem] uppercase lg:text-center text-start leading-[1em]">
             Spend Everyday Like the 1%{" "}
           </p>
-          <p className="font-semibold lg:text-[1rem] text-[0.8rem] lg:w-[35rem] lg:text-center text-start">
+          <p className="font-semibold lg:text-[1.1rem] md:text- text-[0.8rem] lg:w-[35rem] lg:text-center text-start">
             Get a discount on everything, Send money from you NGN account to
             anywhere in the world, Accumulate points to use at the most
             luxurious institutions{" "}
           </p>
-          <p className="font-light text-[0.8rem] lg:text-center text-start ">
+          <p className="font-light text-[0.8rem] lg:text-center text-start cursor-pointer hover:text-[#7154DD] ">
             T & C's apply
           </p>
         </div>
         {/* Slide */}
-        <div className="lg:w-[50vw] w-[200vw] flex items-center justify-center mt-[3rem] ">
+        <div className="lg:w-[50vw]   w-[200vw] flex items-center justify-center mt-[3rem] ">
           <Swiper
             slidesPerView={3}
             spaceBetween={10}
@@ -174,7 +161,7 @@ const Home = () => {
           </Swiper>
         </div>
       </section>
-      <section className="h-screen flex flex-col bg-[black]  ">
+      <section className="lg:h-screen  h-[75vh] flex flex-col bg-[black]  ">
         <div className="flex-[0.2] w-full flex flex-col justify-center items-center text-center ">
           <motion.div
             initial={{ opacity: 0, y: -100 }}
@@ -200,40 +187,33 @@ const Home = () => {
             </p>
           </motion.div>
 
-          <div className="w-full  h-[60vh] flex justify-center items-center ">
+          <div className="w-[100vw]  h-[60vh] flex justify-center items-center ">
             <motion.img
-              initial={{ opacity: 0, rotate: 50, x: 100 }}
-              layout
-              whileInView={{
-                rotate: [50, 30, 20, 10, 0],
-                opacity: 1,
-                x: 0,
-              }}
-              transition={{ duration: 3 }}
-              transformTemplate={transformTemplate}
+              initial={{ opacity: 0, rotate: -90 }}
+              whileInView={{ opacity: 1, rotate: [-90, -45, 0] }}
+              transition={{ duration: 4 }}
               src={card1}
-              className="relative lg:scale-100 md:scale-80 scale-70 lg:left-[12rem] md:left-[15rem] left-[17rem] "
+              className="relative lg:w-[380px] md:w-[380px] w-[234px] lg:left-[12rem] md:left-[15rem] left-[10rem] "
             />
             <motion.img
-              initial={{ opacity: 1, x: -200, rotate: -20 }}
-              whileInView={{
-                opacity: 1,
-                rotate: 0,
-                x: 0,
-              }}
-              transition={{ duration: 3 }}
-              className=" lg:scale-100 scale-[0.7] md:scale-100  relative lg:left-[7rem] md:left-[6rem] left-[5rem] "
+              initial={{ opacity: 0, rotate: 0 }}
+              whileInView={{ opacity: [0, 0.5, 1], rotate: [90, 45, 0] }}
+              transition={{ duration: 4 }}
+              className=" lg:w-[380px] md:w-[380px] w-[234px] relative lg:left-[7rem] md:left-[6rem] left-[5rem] "
               src={card2}
             />
             <motion.img
-              className="  lg:scale-100 scale-[0.7]  md:scale-100 relative lg:right-[25rem]  right-[23rem] "
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: [0, 0, 1] }}
+              transition={{ duration: 4 }}
+              className=" lg:w-[380px] md:w-[380px] w-[234px]  relative lg:right-[25rem]  right-[14rem] "
               sty
               src={card3}
             />
           </div>
         </div>
       </section>
-      <section className="lg:h-screen md:h-[75vh] flex lg:flex-row flex-col  lg:justify-center lg:items-center  justify-center items-center gap-[0.2rem] ">
+      <section className="lg:h-screen md:h-[75vh] h-[75vh] mt-[1rem] flex lg:flex-row flex-col  lg:justify-center lg:items-center  justify-center items-center lg:gap-[0.2rem]  ">
         <div
           className="
         flex flex-col
@@ -243,7 +223,10 @@ const Home = () => {
         md:w-full md:justify-center
         md:items-center gap-[0.2rem] "
         >
-          <p
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.7 }}
             className="font-black lg:text-[3.5rem]
            md:text-[3rem] text-[1.8rem] uppercase
            md:text-center
@@ -253,36 +236,45 @@ const Home = () => {
            md:leading-[2.8rem] leading-[2rem]"
           >
             SEND AND RECEIVE MONEY FROM ACROSS THE GLOBE
-          </p>
-          <p className="lg:text-[1rem] text-[0.8rem] mt-[0.8rem] font-semibold   md:w-[35rem] w-[20rem]">
+          </motion.p>
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="lg:text-[1rem] text-[0.8rem] mt-[0.8rem] font-semibold   md:w-[35rem] w-[20rem]"
+          >
             Seamless Cross-Border Transactions: Receive money effortlessly with
             your universal account number, bridging the gap between continents,
             from the USA and the UK to Morocco.
-          </p>
-          <button className="rounded-[1rem] p-[1rem]  bg-[#15F4B1] cursor-pointer hover:bg-[#10c28c] font-semibold text-[black] my-[1rem]">
+          </motion.p>
+          <button className="rounded-[1rem] p-[1rem]    border-solid border-[2px] border-[#7D5DF6] cursor-pointer font-semibold text-[#7D5DF6] hover:text-[white] hover:bg-[#7D5DF6] my-[1rem]">
             See how it works
           </button>
         </div>
-        <div className=" justify-start flex lg:w-full md:w-full md:justify-center ">
-          <motion.img
-            whileInView={{ rotateZ: 360 }}
+        <div className=" justify-start flex lg:w-full md:w-full md:justify-center  ">
+          {/* <motion.img
+            whileInView={{ scale: [1, 0.5, 1] }}
             transition={{ duration: 2 }}
-            className="lg:w-[20rem] md:w-[18rem] w-[15rem] rounded-[20px]"
-            src={Comp6}
-          />
+            className="lg:w-[30rem] md:w-[19rem] w-[15rem] "
+            src={Comp8}
+          /> */}
+          <Globe />
           {/* <Spline scene="https://prod.spline.design/hKwXHwuN6kawj5SH/scene.splinecode" /> */}
         </div>
       </section>
-      <section className="h-screen md:h-[100vh] flex lg:flex-row   flex-col-reverse gap-[1rem] justify-center items-center object-center lg:mt-[0] ">
+      <section className="lg:h-screen md:h-[100vh] h-[75vh] mb-[2rem] flex lg:flex-row   flex-col-reverse lg:gap-[1rem] gap-[3rem] justify-center items-center object-center lg:mt-[0] ">
         <div className="justify-start flex lg:w-full md:w-full md:justify-center">
           <motion.img
             whileInView={{ scale: [1, 0.5, 1] }}
             transition={{ duration: 2 }}
-            className="lg:w-[20rem] md:w-[19rem] w-[15rem] rounded-[20px]"
+            className="lg:w-[30rem] md:w-[19rem] w-[15rem] "
             src={Comp8}
           />
         </div>
         <div
+          initial={{ opacity: 0 }}
+          whileinView={{ opacity: 1 }}
+          transition={{ duration: 6 }}
           className="
         flex flex-col
         lg:items-center
@@ -291,7 +283,7 @@ const Home = () => {
         md:w-full md:justify-center
         md:items-center gap-[0.2rem] "
         >
-          <p
+          <motion.p
             className="font-black lg:text-[3.5rem]
            md:text-[3rem] text-[1.8rem] uppercase
            md:text-center
@@ -299,18 +291,29 @@ const Home = () => {
            text-[black] lg:leading-[3rem]
            md:w-[35rem] w-[20rem]
            md:leading-[2.8rem] leading-[2rem]"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.7 }}
           >
             Premium financial security
-          </p>
-          <p className="lg:text-[1rem] text-[0.8rem] mt-[0.8rem] font-semibold   md:w-[35rem] w-[20rem]">
+          </motion.p>
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="lg:text-[1rem] text-[0.8rem] mt-[0.8rem] font-semibold   md:w-[35rem] w-[20rem]"
+          >
             Your Money, Our Priority: 360-Degree Security for Peace of Mind. Our
             dedicated team ensures 24/7 monitoring, vigilant customer care,
             anti-scam protection, and proactive fund retrieval
             efforts—safeguarding your financial peace in every scenario
-          </p>
-          <button className="rounded-[1rem] p-[1rem] bg-[#15F4B1] cursor-pointer hover:bg-[#10c28c] font-semibold text-[black] mt-[1rem]">
-            try it
-          </button>
+          </motion.p>
+          <a
+            href="/how-we-keep-your-money-safe"
+            className="rounded-[1rem] p-[1rem] bg-[#7D5DF6] cursor-pointer hover:bg-[#ECE7FE] font-semibold hover:text-[black] mt-[1rem] text-[white]"
+          >
+            Read more
+          </a>
         </div>
 
         <div></div>
@@ -350,15 +353,15 @@ const Home = () => {
         </motion.span>
         <button
           onClick={handleRegister}
-          className="text-[black] bg-[#15F4B1] hover:bg-[#c4c3c3] font-medium rounded-[1rem] p-[1rem] cursor-pointer"
+          className=" bg-[#7D5DF6] hover:bg-[#c4c3c3] font-bold rounded-[1rem] p-[1rem] cursor-pointer text-[white]"
         >
           Sign up now
         </button>
         <div className="flex lg:flex-row flex-col justify-center items-center gap-[2rem]">
           <motion.span
             initial={{ opacity: 0, x: -100 }}
-            whileInView={{ opacity: [0, 0.5, 1], x: 0 }}
-            transition={{ duration: 2 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1 }}
             className={` transition-all duration-500 ease-in-out ${
               active == 0
                 ? "py-[0.5rem] px-[2rem] bg-[white] text-black font-medium rounded-[20px] border-white border-[0.1rem] cursor-pointer"
@@ -370,9 +373,9 @@ const Home = () => {
             Grains🌽
           </motion.span>
           <motion.span
-            initial={{ opacity: 0, x: -100 }}
-            whileInView={{ opacity: [0, 0.5, 1], x: 0 }}
-            transition={{ duration: 2 }}
+            initial={{ opacity: 0, x: -120 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1 }}
             className={`transition-all duration-500 ease-in-out ${
               active == 1
                 ? "py-[0.5rem] px-[2rem] bg-[white] text-black font-medium rounded-[20px] border-white border-[0.1rem] cursor-pointer"
@@ -384,9 +387,9 @@ const Home = () => {
             Oil 🛢️
           </motion.span>
           <motion.span
-            initial={{ opacity: 0, x: -100 }}
-            whileInView={{ opacity: [0, 0.5, 1], x: 0 }}
-            transition={{ duration: 2 }}
+            initial={{ opacity: 0, x: -130 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1 }}
             className={` transition-all duration-500 ease-in-out ${
               active == 2
                 ? "py-[0.5rem] px-[2rem] bg-[white] text-black font-medium rounded-[20px] border-white border-[0.1rem] cursor-pointer"
@@ -399,7 +402,7 @@ const Home = () => {
           </motion.span>
         </div>
       </section>
-      <Footer ref={contactUs} />
+      <Footer />
     </div>
   );
 };
