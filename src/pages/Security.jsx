@@ -14,7 +14,7 @@ const Security = () => {
         <button>Register</button>
       </div> */}
       <section className="w-screen h-screen flex lg:flex-row flex-col lg:items-center lg:justify-center lg:mt-[0] mt-[7rem]">
-        <div className="lg:w-[50vw] lg:ml-[25vw] flex flex-col lg:gap-[1rem] mx-[8vw]">
+        <div className="lg:w-[50vw] lg:mx-[20vw] flex flex-col lg:gap-[0rem] lg: mx-[8vw]">
           <p className=" text-[gray]  font-medium lg:text-[1.5rem] text-[1.1rem]">
             Premium Security
           </p>
@@ -30,7 +30,7 @@ const Security = () => {
           <img className="w-[100%]" src={cube} />
         </div>
       </section>
-      <section className="w-screen lg:h-screen flex lg:justify-center lg:items-center  justify-start lg:flex-row flex-col-reverse lg:gap-[5rem] lg:mx-[10vw]">
+      <section className="w-screen lg:h-screen h-[70vh] flex lg:justify-center lg:items-center  justify-start lg:flex-row flex-col-reverse lg:gap-[5rem] lg:mx-[10vw]">
         <div className=" lg:w-[20rem] lg:scale-[1] scale-[0.8]">
           <motion.img
             initial={{ x: -300, opacity: 0 }}
@@ -53,22 +53,29 @@ const Security = () => {
           </p>
         </div>
       </section>
-      <section className="w-screen h-screen mt-[5rem] lg:text-center">
-        <div className=" w-full flex flex-col gap-[1rem] lg:items-center justify-center ">
-          <p className="lg:text-[4rem]  text-[2.5rem]  font-black  leading-[3.6rem] text-[#212121] uppercase mb-[1rem] mx-[8vw]  ">
+      <section className="w-screen lg:h-screen md:h-[60vh] h-[80vh] mt-[5rem] lg:text-center">
+        <div className=" lg:w-full flex flex-col gap-[1rem] lg:items-center justify-center lg:mx-[0] mx-[8vw]">
+          <p className="lg:text-[4rem]  text-[2.5rem]  font-black  leading-[3.6rem] text-[#212121] uppercase mb-[1rem] ">
             Explore the Strength of Escrow Accounts
           </p>
-          <p className="text-[black] font-medium text-[1rem] lg:w-[30rem] md:w-[25rem] w-[20rem] md:mx-[8vw]">
+          <p className="text-[black] font-medium text-[1rem] lg:w-[30rem] md:w-[25rem] w-[20rem] md:mx-[8vw] ">
             Escrow accounts act as a reliable mediator, securing funds until
             both parties meet agreed-upon conditions. Explore the strength of
             escrow for transparent and secure financial exchanges, offering
             peace of mind in every transaction.
           </p>
-          <div className="lg:w-[40rem]">
+          <div className="lg:w-[40rem] ">
             <img classname="" src={escrow} />
           </div>
 
-          <button className="rounded-[1rem] p-[1rem]  md:mx-[40vw] border-solid border-[2px] border-[#7D5DF6] cursor-pointer font-semibold text-[#7D5DF6] hover:text-[white] hover:bg-[#7D5DF6] my-[1rem]">
+          <button
+            className="rounded-[1rem] p-[1rem]
+           md:mx-[40vw] relative   border-solid border-[2px] border-[#7D5DF6]
+          cursor-pointer font-semibold text-[#7D5DF6] hover:text-[white]
+          hover:bg-[#7D5DF6] my-[1rem]
+
+          "
+          >
             Get started
           </button>
         </div>

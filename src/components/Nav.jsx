@@ -6,7 +6,9 @@ const Nav = ({ handleClick, dropdown, black }) => {
   return (
     <div className="w-full h-[10vh]  flex flex-row items-center justify-center   text-[white] absolute font-semibold">
       <div className="lg:w-[50vw] md:w-full w-full lg:px-[0rem] px-[2rem] flex flex-row justify-between items-center ">
-        <img src={Logo} className="w-[120px]" />
+        <a href="/">
+          <img src={Logo} className="w-[120px]" />
+        </a>
         <span
           className={`lg:flex hidden  w-full   items-center  list-none justify-between mx-10 ${
             black == true ? "text-[black]" : "text-white"

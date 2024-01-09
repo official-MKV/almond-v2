@@ -191,22 +191,22 @@ const Home = () => {
             <motion.img
               initial={{ opacity: 0, rotate: -90 }}
               whileInView={{ opacity: 1, rotate: [-90, -45, 0] }}
-              transition={{ duration: 4 }}
+              transition={{ duration: 3 }}
               src={card1}
               className="relative lg:w-[380px] md:w-[380px] w-[234px] lg:left-[12rem] md:left-[15rem] left-[10rem] "
             />
             <motion.img
               initial={{ opacity: 0, rotate: 0 }}
               whileInView={{ opacity: [0, 0.5, 1], rotate: [90, 45, 0] }}
-              transition={{ duration: 4 }}
+              transition={{ duration: 3 }}
               className=" lg:w-[380px] md:w-[380px] w-[234px] relative lg:left-[7rem] md:left-[6rem] left-[5rem] "
               src={card2}
             />
             <motion.img
               initial={{ opacity: 0 }}
               whileInView={{ opacity: [0, 0, 1] }}
-              transition={{ duration: 4 }}
-              className=" lg:w-[380px] md:w-[380px] w-[234px]  relative lg:right-[25rem]  right-[14rem] "
+              transition={{ duration: 3, delay: 1.5 }}
+              className=" lg:w-[380px] md:w-[380px] w-[234px]  relative lg:right-[25rem] md:right-[23rem]  right-[14rem] "
               sty
               src={card3}
             />
@@ -309,8 +309,8 @@ const Home = () => {
             efforts—safeguarding your financial peace in every scenario
           </motion.p>
           <a
-            href="/how-we-keep-your-money-safe"
-            className="rounded-[1rem] p-[1rem] bg-[#7D5DF6] cursor-pointer hover:bg-[#ECE7FE] font-semibold hover:text-[black] mt-[1rem] text-[white]"
+            href="/how-we-secure-your-money"
+            className="rounded-[1rem] p-[1rem] bg-[#7D5DF6] cursor-pointer hover:bg-[#ECE7FE] font-semibold hover:text-[black] mt-[1rem] text-[white] text-center"
           >
             Read more
           </a>
@@ -319,7 +319,7 @@ const Home = () => {
         <div></div>
       </section>
       <section
-        className="bg-cover bg-center lg:h-screen h-[100vh]  flex gap-[2rem] items-center flex-col justify-start  transition-all duration-1000 ease-in-out"
+        className="bg-cover bg-center lg:h-screen md:h-[60vh] h-[100vh]  flex gap-[2rem] items-center flex-col justify-start  transition-all duration-1000 ease-in-out"
         style={{ backgroundImage: `url(${background})` }}
       >
         <motion.p
@@ -328,7 +328,7 @@ const Home = () => {
           transition={{ duration: 2 }}
           className="font-extrabold
           lg:text-[3rem] lg:mt-[3rem] lg:w-[40rem]
-            md:w-[35rem] w-[20rem] text-[2rem] uppercase
+            md:w-[35rem] mt-[3rem] mx-[1rem]  text-[2rem] uppercase
             lg:text-center text-start leading-[1em] text-[white]"
         >
           Invest in Grains, Oil, and Precious Metal
@@ -353,11 +353,11 @@ const Home = () => {
         </motion.span>
         <button
           onClick={handleRegister}
-          className=" bg-[#7D5DF6] hover:bg-[#c4c3c3] font-bold rounded-[1rem] p-[1rem] cursor-pointer text-[white]"
+          className=" bg-[#7D5DF6] hover:bg-[#c4c3c3] font-bold rounded-[1rem] p-[1rem] cursor-pointer text-[white] text-center"
         >
           Sign up now
         </button>
-        <div className="flex lg:flex-row flex-col justify-center items-center gap-[2rem]">
+        <div className="flex lg:flex-row flex-col justify-center items-center lg:gap-[2rem] gap-[1rem]">
           <motion.span
             initial={{ opacity: 0, x: -100 }}
             whileInView={{ opacity: 1, x: 0 }}
