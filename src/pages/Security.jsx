@@ -1,8 +1,6 @@
 import React from "react";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
-import cube from "../assets/cube2.png";
-import cubegif from "../assets/cube-free.gif";
 import chat from "../assets/chat.jpg";
 import { motion } from "framer-motion";
 import escrow from "../assets/escrow.svg";
