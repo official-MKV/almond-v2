@@ -11,7 +11,7 @@ const Dropdown = lazy(() => import("../components/Dropdown"));
 const RegisterPopup = lazy(() => import("../components/RegisterPopup"));
 const Globe = lazy(() => import("../components/Globe"));
 
-import { motion } from "framer-motion";
+import { animate, motion, useAnimate } from "framer-motion";
 
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css/effect-fade";
@@ -39,9 +39,30 @@ const Home = () => {
   const [active, setActive] = useState(0);
   const [background, setBackground] = useState(grains);
   const [popUp, setPopup] = useState(false);
+  const [popupref, animate] = useAnimate();
 
   const handleRegister = () => {
     setPopup(!popUp);
+    console.log(popUp);
+    if (popUp == false) {
+      animate(
+        popupref.current,
+        {
+          opacity: [0, 1, 1],
+          x: [100, 50, 0],
+        },
+        { duration: 2 }
+      );
+    } else {
+      animate(
+        popupref.current,
+        {
+          opacity: [1, 0.5, 0],
+          x: [0, 50, 100],
+        },
+        { duration: 2 }
+      );
+    }
   };
   const changeBackground = (e) => {
     const target = e.target;
@@ -59,7 +80,11 @@ const Home = () => {
     <div className="overflow-x-hidden">
       <Nav handleClick={menuClick} dropdown={dropdown} black={false} />
       <Dropdown handleClick={menuClick} dropdown={dropdown} />
-      <RegisterPopup popup={popUp} handleClick={handleRegister} />
+      <RegisterPopup
+        forwardedref={popupref}
+        popup={popUp}
+        handleClick={handleRegister}
+      />
 
       <section
         className="bg-cover bg-center h-screen flex justify-center items-center overflow-x-hidden"
@@ -191,26 +216,26 @@ const Home = () => {
             </p>
           </motion.div>
 
-          <div className="w-[100vw]  h-[60vh] flex justify-center items-center ">
+          <div className="w-[100vw] lg:h-[60vh] h-[45vh] flex justify-center items-center  ">
             <motion.img
               initial={{ opacity: 0, rotate: -90 }}
               whileInView={{ opacity: 1, rotate: [-90, -45, 0] }}
               transition={{ duration: 3 }}
               src={card1}
-              className="relative lg:w-[380px] md:w-[380px] w-[234px] lg:left-[12rem] md:left-[15rem] left-[10rem] "
+              className="relative lg:w-[380px] md:w-[380px]   w-[234px] lg:left-[12rem] md:left-[10rem] left-[7rem] "
             />
             <motion.img
               initial={{ opacity: 0, rotate: 0 }}
               whileInView={{ opacity: [0, 0.5, 1], rotate: [90, 45, 0] }}
               transition={{ duration: 3 }}
-              className=" lg:w-[380px] md:w-[380px] w-[234px] relative lg:left-[7rem] md:left-[6rem] left-[5rem] "
+              className=" lg:w-[380px] md:w-[380px] w-[234px] md:rotate-[30] relative lg:left-[7rem] md:left-[6rem] left-[2rem] "
               src={card2}
             />
             <motion.img
               initial={{ opacity: 0 }}
               whileInView={{ opacity: [0, 0, 1] }}
               transition={{ duration: 3, delay: 1.5 }}
-              className=" lg:w-[380px] md:w-[380px] w-[234px]  relative lg:right-[25rem] md:right-[23rem]  right-[14rem] "
+              className=" lg:w-[250px] md:w-[250px] w-[150px]   relative lg:right-[22rem] md:right-[23rem]  right-[14rem] "
               sty
               src={card3}
             />
@@ -323,7 +348,7 @@ const Home = () => {
         <div></div>
       </section>
       <section
-        className="bg-cover bg-center lg:h-screen md:h-[60vh] h-[100vh]  flex gap-[2rem] items-center flex-col justify-start  transition-all duration-1000 ease-in-out"
+        className="bg-cover bg-center lg:h-screen md:h-[60vh] h-[80vh]  flex gap-[2rem] items-center flex-col justify-start  transition-all duration-1000 ease-in-out"
         style={{ backgroundImage: `url(${background})` }}
       >
         <motion.p

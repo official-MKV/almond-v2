@@ -3,11 +3,15 @@ import { collection, addDoc } from "firebase/firestore";
 import acoin from "../assets/a-coin.svg";
 import { db } from "../firebase_init.js";
 import { useState } from "react";
+import { motion, useAnimate } from "framer-motion";
 
-const RegisterPopup = ({ popup, handleClick }) => {
+const RegisterPopup = ({ popup, handleClick, forwardedref }) => {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [success, setSuccess] = useState(false);
+
+  const [scope, animate] = useAnimate();
+  // console.log(forwardedref.current);
   const sendtoDatabase = async (event) => {
     event.preventDefault();
     try {
@@ -18,6 +22,11 @@ const RegisterPopup = ({ popup, handleClick }) => {
       setEmail("");
       setPhone("");
       setSuccess(true);
+      animate(
+        scope.current,
+        { opacity: [0, 1], scale: [0, 1] },
+        { duration: 1 }
+      );
 
       console.log("Document written with ID: ", docRef.id);
     } catch (e) {
@@ -31,7 +40,10 @@ const RegisterPopup = ({ popup, handleClick }) => {
         popup ? "block" : "hidden"
       } w-screen h-screen bg-black/25 fixed flex justify-center items-center z-[100]`}
     >
-      <div className="lg:w-[40%] h-[60%] lg:h-[60%] md:h-[40%] md:w-[50%] bg-white z-100 rounded-2xl flex flex-col items-center ">
+      <div
+        ref={forwardedref}
+        className="lg:w-[40%] h-[60%] lg:h-[60%] md:h-[40%] md:w-[50%] bg-white z-100 rounded-2xl flex flex-col items-center "
+      >
         <span
           className="w-full flex items-center justify-end mr-[2rem] mt-[1rem] cursor-pointer "
           onClick={handleClick}
@@ -82,6 +94,7 @@ const RegisterPopup = ({ popup, handleClick }) => {
         </span>
 
         <div
+          ref={scope}
           className={`${
             success ? "block" : "hidden"
           } w-full flex flex-col justify-center items-center`}
@@ -101,7 +114,11 @@ const RegisterPopup = ({ popup, handleClick }) => {
           <p className=" font-bold text-[2rem]  text-gray-700 w-[20rem] text-center">
             Sign up Now and join the waitlist
           </p>
-          <form className="w-full lg:h-full  h-[80%] flex flex-col items-center justify-center mx-[1rem]">
+          <form
+            className="w-full lg:h-full  h-[80%] flex flex-col items-center justify-center mx-[1rem]"
+            onSubmit={sendtoDatabase}
+            method="post"
+          >
             <div class="mb-4">
               <label
                 for="email"
@@ -140,8 +157,9 @@ const RegisterPopup = ({ popup, handleClick }) => {
 
             <button
               type="submit"
-              onClick={sendtoDatabase}
-              className="w-[40%] bg-[#7D5DF6] text-white p-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300"
+              className={`w-[40%] bg-[#7D5DF6] text-white p-2 rounded-md
+
+               hover:bg-purple-800 focus:outline-none focus:ring focus:border-blue-300`}
             >
               Submit
             </button>

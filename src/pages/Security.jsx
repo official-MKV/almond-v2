@@ -68,7 +68,8 @@ const Security = () => {
             <img classname="" src={escrow} />
           </div>
 
-          <button
+          <a
+            href="/"
             className="rounded-[1rem] p-[1rem]
            md:mx-[40vw] relative   border-solid border-[2px] border-[#7D5DF6]
           cursor-pointer font-semibold text-[#7D5DF6] hover:text-[white]
@@ -77,7 +78,7 @@ const Security = () => {
           "
           >
             Get started
-          </button>
+          </a>
         </div>
       </section>
       <Footer />
