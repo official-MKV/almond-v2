@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, lazy } from "react";
 import Home from "./pages/Home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Security from "./pages/Security";
+
+const Security = lazy(() => import("../src/pages/Security"));
 
 function App() {
   return (

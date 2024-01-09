@@ -1,12 +1,16 @@
-import React from "react";
+import React, { lazy } from "react";
 import Nav from "../components/Nav";
 import Hero from "../assets/hero-2.jpg";
 import { Swiper, SwiperSlide, useSwiperSlide } from "swiper/react";
-import Footer from "../components/Footer";
+
 import Slide from "../components/Slide";
-import Dropdown from "../components/Dropdown";
-import Globe from "../components/Globe";
-import RegisterPopup from "../components/RegisterPopup";
+
+// Lazy Loaded Components
+const Footer = lazy(() => import("../components/Footer"));
+const Dropdown = lazy(() => import("../components/Dropdown"));
+const RegisterPopup = lazy(() => import("../components/RegisterPopup"));
+const Globe = lazy(() => import("../components/Globe"));
+
 import { motion } from "framer-motion";
 
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
